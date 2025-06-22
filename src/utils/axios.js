@@ -35,8 +35,6 @@ axiosInstance.interceptors.response.use(
     return config
   },
   (error) => {
-    console.log(error.status === 401, localStorage.getItem('token'))
-
     if (error.status === 401) auth.logout()
     return Promise.reject(error)
   },
